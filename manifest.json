@@ -3,7 +3,7 @@
   "version": "0.1",
   "description": "Syntax-highlights source code files, like Neo scoping out the Matrix (played by the infallible KEANU REEVES).",
   "content_scripts": [ {
-     "js": [ "neo-vision.js" ],
+     "js": [ "prettify.js", "lang-css.js", "neo-vision.js" ],
      "matches": [ "http://*/*.css*", "http://*/*.js*", "https://*/*.css*", "https://*/*.js*" ],
      "run_at": "document_end"
   } ],
