@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>options</title>
+  <title>Neo-vision options</title>
 
   <style media="screen">
     body {
@@ -27,10 +27,6 @@
     }
     
     textarea {
-      width: 540px;
-      height: 400px;
-      font-size: 12px;
-      font-family: monospace;
     }
     
     input[type="submit"] {
@@ -39,6 +35,24 @@
     
     h1 {
       margin: 0 0 10px;
+    }
+    
+    #style-text {
+      display: block;
+      -webkit-appearance: textarea;
+      border: 1px solid #CCC;
+      -webkit-user-select: text;
+      resize: both;
+      -webkit-resize: both;
+      padding: 2px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      width: 540px;
+      height: 400px;
+      font-size: 12px;
+      font-family: monospace;
+      overflow: auto;
+      line-height: 1.45em;
     }
     
   </style>
@@ -64,8 +78,7 @@ li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 { list-style-type: none }
 li.L1, li.L3, li.L5, li.L7, li.L9 { background: #eee }
 </style>
 
-<style id="sunburst-theme" media="none">
-/* Pretty printing styles. Used with prettify.js. */
+<style id="sunburst-theme" media="none">/* Pretty printing styles. Used with prettify.js. */
 /* Vim sunburst theme by David Leibovic */
 body { background-color: #000; }
 .str { color: #65B042; } /* string  - green */
@@ -81,8 +94,7 @@ body { background-color: #000; }
 .dec { color: #3387CC; } /* decimal - blue */
 </style>
 
-<style id="sunburst-dd-theme" media="none">
-body{background:#000; color:white; }
+<style id="sunburst-dd-theme" media="none">body{background:#000; color:white; }
 pre { line-height: 1.45em; }
 .str{ color: #65B042 } /* string */
 .kwd{ color: #E28964 } /* keyword */
@@ -96,12 +108,9 @@ pre { line-height: 1.45em; }
 .atv{color:#65B042}
 .dec{color:#3387CC}
 ol.linenums{margin-top:0;margin-bottom:0}
-li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8{ list-style:none; }
-li.L1,li.L3,li.L5,li.L7,li.L9{background:#111; }
 </style>
   
-<style id="desert-theme" media="none">
-/* desert scheme ported from vim to google prettify */
+<style id="desert-theme" media="none">/* desert scheme ported from vim to google prettify */
 body { background-color: #333 }
 pre .nocode { background-color: none; color: #000 }
 pre .str { color: #ffa0a0 } /* string  - pink */
@@ -141,23 +150,26 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
           <option value="desert">desert</option>
         </select>
       </p>
-      <p><textarea></textarea></p>
+      <p><style id="style-text" contenteditable></style></p>
       <p>
         <input type="submit" id="save-button" value="Save" />
       </p>
     </form>
+    
+    <!-- <textarea></textarea> -->
   </div>
 
+
+
   <div id="examples">
-    <pre class="prettyprint lang-js">// Say hello world until the user starts questioning
-// the meaningfulness of their existence.
+    <pre class="example prettyprint lang-js">// here's some sweet scriptz
 function helloWorld(world) {
   for (var i = 42; --i >= 0;) {
     alert('Hello ' + String(world));
   }
 }</pre>
 
-    <pre class="prettyprint lang-css">/* this is some hawt CSS */
+    <pre class="example prettyprint lang-css">/* this is some hawt CSS */
 .bar { color: hsl( 0, 100%, 50% ); }
 #foo { color: pink; }
 b { color: blue; }
@@ -166,47 +178,8 @@ u { color: "umber"; }</pre>
     <pre id="saved-css" class="prettyprint lang-css"></pre>
   </div>
   
-  
-
-  
   <script src="prettify.js"></script>
   <script src="lang-css.js"></script>
-  <script>
-    window.onload = function() {
-      prettyPrint();
-      
-      var form = document.getElementsByTagName('form')[0],
-          textarea = document.getElementsByTagName('textarea')[0],
-          themeSelect = document.getElementById('themes'),
-          demoStyle = document.createElement('style');
-      
-      function changeStyle( style ) {
-        demoStyle.textContent = style;
-        localStorage.neoVisionStyle = style;
-        textarea.textContent = style;
-      }
-      
-      changeStyle( localStorage.neoVisionStyle || document.getElementById('default-theme').textContent );
-      
-      document.head.appendChild( demoStyle );
-      
-      form.addEventListener( 'submit', function(event) {
-        console.log( textarea.value )
-        event.preventDefault();
-      }, false);
-      
-      themeSelect.addEventListener( 'change', function(event) {
-        console.log( event.target.value )
-        if ( !event.target.value.length ) {
-          return;
-        }
-        var style = document.getElementById( event.target.value + '-theme').textContent;
-        changeStyle( style )
-      }, false);
-      
-    }
-  </script>
-  
 
 </body>
 </html>
