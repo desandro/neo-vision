@@ -1,0 +1,32 @@
+<style id="default-theme" media="none">.str { color: #080 }  /* string content */
+.kwd { color: #008 }  /* a keyword */
+.com { color: #800 }  /* a comment */
+.typ { color: #606 }  /* a type name */
+.lit { color: #066 }  /* a literal value */
+/* punctuation, lisp open bracket, lisp close bracket */
+.pun, .opn, .clo { color: #660 }
+.tag { color: #008 }  /* a markup tag name */
+.atn { color: #606 }  /* a markup attribute name */
+.atv { color: #080 }  /* a markup attribute value */
+.dec, .var { color: #606 }  /* a declaration; a variable name */
+.fun { color: red }  /* a function name */
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0 } /* IE indents via margin-left */
+li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1, li.L3, li.L5, li.L7, li.L9 { background: #eee }
+</style>
+
+<script>
+  chrome.extension.onRequest.addListener( function(request, sender, sendResponse) {
+    switch ( request.method ) {
+      case 'getStyle' : 
+        var style  = localStorage['neoVisionStyle'] || document.getElementById('default-theme').textContent;
+        sendResponse( style );
+        break;
+      default :
+        sendResponse(); // snub them.
+    }
+  });
+</script>

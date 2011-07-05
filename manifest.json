@@ -8,5 +8,6 @@
      "run_at": "document_end"
   } ],
   "permissions": [ "contextMenus", "tabs", "http://*/", "https://*/" ],
-  "options_page": "options.html"
+  "options_page": "options.html",
+  "background_page": "background.html"
 }

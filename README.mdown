@@ -1,0 +1,10 @@
+Neo-vision Chrome extension - syntax highlighted view-source 
+============================================================
+
+Syntax-highlights source code files, like Neo scoping out the Matrix (played by the infallible **Keanu Reeves**).  This one is better than all the others because...
+
++ Relies on [Google Code Prettify](http://code.google.com/p/google-code-prettify/) for quick and simple syntax highlighting
++ Highlight styles can be easily set in the options with basic CSS.
++ No beautifier/uncompressor included. Whitespace is preserved.
+
+Currently only supports `.js` and `.css` files, but more extensions can be added as needed.

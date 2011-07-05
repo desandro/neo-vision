@@ -55,10 +55,14 @@
       line-height: 1.45em;
     }
     
+    hr {
+      border: none;
+      border-top: 1px solid hsla( 0, 0%, 0%, 0.2 );
+      border-bottom: 1px solid hsla( 0, 0%, 100%, 0.2 );
+    }
   </style>
   
-<style id="default-theme" media="none">
-.str { color: #080 }  /* string content */
+<style id="default-theme" media="none">.str { color: #080 }  /* string content */
 .kwd { color: #008 }  /* a keyword */
 .com { color: #800 }  /* a comment */
 .typ { color: #606 }  /* a type name */
@@ -94,20 +98,20 @@ body { background-color: #000; }
 .dec { color: #3387CC; } /* decimal - blue */
 </style>
 
-<style id="sunburst-dd-theme" media="none">body{background:#000; color:white; }
+<style id="sunburst-dd-theme" media="none">body { background: #000; color: white; }
 pre { line-height: 1.45em; }
-.str{ color: #65B042 } /* string */
-.kwd{ color: #E28964 } /* keyword */
-.com{ color:#555; font-style: italic; }  /* comment */
-.typ{ color: #89bdff } /* type */
-.lit{color:#3387CC}
-.pun{color:#EDC}
-.pln{color:#EEE}
-.tag{color:#89bdff}
-.atn{color:#bdb76b}
-.atv{color:#65B042}
-.dec{color:#3387CC}
-ol.linenums{margin-top:0;margin-bottom:0}
+.str { color: #65B042; } /* string */
+.kwd { color: #E28964; } /* keyword */
+.com { color: #444; font-style: italic; }  /* comment */
+.typ { color: #89bdff; } /* type */
+.lit { color: #3387CC; }
+.pun { color: #EDC; }
+.pln { color: #EEE; }
+.tag { color: #89bdff; }
+.atn { color: #bdb76b; }
+.atv { color: #65B042; }
+.dec { color: #3387CC; }
+ol.linenums { margin-top: 0; margin-bottom: 0; }
 </style>
   
 <style id="desert-theme" media="none">/* desert scheme ported from vim to google prettify */
@@ -150,36 +154,88 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
           <option value="desert">desert</option>
         </select>
       </p>
+      <h2>Theme CSS</h2>
       <p><style id="style-text" contenteditable></style></p>
-      <p>
-        <input type="submit" id="save-button" value="Save" />
+      <p class="has-buttons">
+        <input type="submit" id="save-button" value="Save Theme" />
       </p>
     </form>
-    
-    <!-- <textarea></textarea> -->
   </div>
 
 
 
   <div id="examples">
-    <pre class="example prettyprint lang-js">// here's some sweet scriptz
+    <pre class="example prettyprint lang-js">// JavaScript example
 function helloWorld(world) {
   for (var i = 42; --i >= 0;) {
     alert('Hello ' + String(world));
   }
 }</pre>
-
-    <pre class="example prettyprint lang-css">/* this is some hawt CSS */
+    <hr />
+    <pre class="example prettyprint lang-css">/* CSS example */
 .bar { color: hsl( 0, 100%, 50% ); }
 #foo { color: pink; }
 b { color: blue; }
 u { color: "umber"; }</pre>
-
+    <hr />
     <pre id="saved-css" class="prettyprint lang-css"></pre>
   </div>
   
   <script src="prettify.js"></script>
   <script src="lang-css.js"></script>
+  <script>
+    // options page only
+    
+    var bgPage = chrome.extension.getBackgroundPage();
+
+    window.onload = function() {
+
+      var styleText = document.getElementById('style-text'),
+          savedCssElem = document.getElementById('saved-css'),
+          defaultThemeStyle = document.getElementById('default-theme').textContent;
+
+      // set text to last style
+      if ( localStorage['neoVisionStyle'] ) {
+        styleText.textContent = localStorage['neoVisionStyle'];
+        saveStyle( localStorage['neoVisionStyle'] );
+      } else {
+        styleText.textContent = defaultThemeStyle
+      }
+      styleText.textContent = localStorage['neoVisionStyle'] || defaultThemeStyle;
+
+      prettyPrint();
+
+      // remove prettyprint class
+      var prettyPrinted = document.querySelectorAll('.example.prettyprint');
+      for (var i=0, len = prettyPrinted.length; i < len; i++) {
+        prettyPrinted[i].classList.remove('prettyprint');
+      }
+
+      function saveStyle( style ) {
+        savedCssElem.innerHTML = '/**** saved Neo-vision style ****/ <br />' + style;
+        prettyPrint();
+        // bgPage.storeStyle( style );
+        localStorage['neoVisionStyle'] = style;
+      }
+
+      // save theme when form is submitted
+      document.getElementsByTagName('form')[0].addEventListener( 'submit', function(event) {
+        saveStyle( styleText.textContent )
+        event.preventDefault();
+      }, false);
+
+      // change theme when select is changed
+      document.getElementById('themes').addEventListener( 'change', function(event) {
+        if ( !event.target.value.length ) {
+          return;
+        }
+        // get content of matching <style id="value-theme" />
+        var style = document.getElementById( event.target.value + '-theme').textContent;
+        styleText.textContent = style;
+      }, false);
+
+    };
+  </script>
 
 </body>
 </html>
