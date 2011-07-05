@@ -25,8 +25,8 @@
     .atv{color:#65B042} \
     .dec{color:#3387CC} \
     ol.linenums{margin-top:0;margin-bottom:0} \
-    li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8{list-style:none} \
-    li.L1,li.L3,li.L5,li.L7,li.L9{background:#eee} \
+    li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8{ list-style:none; } \
+    li.L1,li.L3,li.L5,li.L7,li.L9{background:#111; } \
   "));
   document.head.appendChild(style);
   

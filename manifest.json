@@ -7,5 +7,6 @@
      "matches": [ "http://*/*.css*", "http://*/*.js*", "https://*/*.css*", "https://*/*.js*" ],
      "run_at": "document_end"
   } ],
-  "permissions": [ "contextMenus", "tabs", "http://*/", "https://*/" ]
+  "permissions": [ "contextMenus", "tabs", "http://*/", "https://*/" ],
+  "options_page": "options.html"
 }
