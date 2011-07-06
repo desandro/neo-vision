@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Neo-vision options</title>
+  <title>Neo Vision options</title>
 
   <style media="screen">
     body {
@@ -55,6 +55,13 @@
       border-top: 1px solid hsla( 0, 0%, 0%, 0.2 );
       border-bottom: 1px solid hsla( 0, 0%, 100%, 0.2 );
     }
+    
+    #icon {
+      float: right;
+      width: 92px;
+      height: 92px;
+    }
+    
   </style>
 
 <!-- Themes -->
@@ -124,7 +131,7 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 .pln { color: #000; } /* plaintext */
 </style>
 
-<style id="i-know-kung-fu-theme" media="none">/* made for Neo-vision */
+<style id="i-know-kung-fu-theme" media="none">/* made for Neo Vision */
 body { background: #000; color: #2F2; }
 .str { color: #6A6; background: hsla( 120, 50%, 70%, 0.1); } /* string */
 .kwd { color: #EFE; text-shadow: 0 0 10px hsla(120,100%,50%,0.8), 0 0 5px hsla(120,50%,50%,0.5);  } /* keyword */
@@ -135,7 +142,7 @@ body { background: #000; color: #2F2; }
 .pln { color: #AFA; } /* plain text */
 </style>
 
-<style id="katydid-theme" media="none">/* made for Neo-vision */
+<style id="katydid-theme" media="none">/* made for Neo Vision */
 body { background: #20282C; color: #F8F8F8; }
 .str { color: #2C5; background: hsla( 120, 100%, 70%, 0.05); text-shadow: 0 1px black; border-radius: 0.3em; } /* string */
 .kwd { color: #F84; } /* keyword */
@@ -174,7 +181,7 @@ li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 { list-style-type: none }
 li.L1, li.L3, li.L5, li.L7, li.L9 { background: #eee }
 </style>
 
-<style id="primavera-theme" media="none">/* made for Neo-vision */
+<style id="primavera-theme" media="none">/* made for Neo Vision */
 .str { color: #1A6; background: hsla( 120, 100%, 50%, 0.05); border-radius: 0.3em; } /* string */
 .kwd { color: #D50; } /* keyword */
 .com { color: #D9B; font-style: italic; }  /* comment */
@@ -227,8 +234,8 @@ pre { line-height: 1.45em; }
 <body>
 
   <div id="options">
-    <h1>Neo-vision options</h1>
-
+    <img src="neo-vision-128.png" id="icon" />
+    <h1>Neo Vision options</h1>
     <form>
       <h2>Theme CSS</h2>
       <p>
@@ -261,8 +268,8 @@ pre { line-height: 1.45em; }
   <div id="examples">
     <pre class="example prettyprint lang-js">// JavaScript example
 function helloWorld(world) {
-  for (var i = 42; --i >= 0;) {
-    alert('Hello ' + String(world));
+  for (var i = 42; --i >= 0) {
+    alert( 'Hello ' + new Constructor(world) );
   }
 }</pre>
     <hr />
@@ -282,8 +289,6 @@ u { color: "umber"; }</pre>
     
     // get background page
     var bgPage = chrome.extension.getBackgroundPage();
-
-    console.log( bgPage )
 
     window.onload = function() {
 
