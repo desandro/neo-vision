@@ -8,8 +8,9 @@
 
   chrome.extension.sendRequest({method: "getStyle"}, function(response) {
     
+    console.log('Neo-vision active');
+    
     var style = document.createElement("style");
-    style.type = "text/css";
     style.textContent = response;
     document.head.appendChild(style);
 
