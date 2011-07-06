@@ -131,6 +131,18 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 .pln { color: #000; } /* plaintext */
 </style>
 
+<style id="i-know-kung-fu-theme" media="none">/* Special made, just for Neo-vision */
+body { background: #000; color: #2F2; }
+pre { line-height: 1.5em; }
+.str { color: #6A6; background: hsla( 120, 50%, 70%, 0.1); } /* string */
+.kwd { color: #EFE; text-shadow: 0 0 10px hsla(120,100%,50%,0.8), 0 0 5px hsla(120,50%,50%,0.5);  } /* keyword */
+.com { color: #343; font-style: italic; }  /* comment */
+.typ { color: #6C9; text-decoration: underline; } /* type: JS constructors */
+.lit { color: #DFD; } /* literal: numbers, CSS values */
+.pun { color: #8D8; } /* punctuation */
+.pln { color: #AFA; } /* plain text */
+</style>
+
 <style id="katydid-theme" media="none">/* Special made, just for Neo-vision */
 body { background: #20282C; color: #F8F8F8; }
 pre { line-height: 1.5em; }
@@ -168,6 +180,17 @@ ol.linenums { margin-top: 0; margin-bottom: 0 } /* IE indents via margin-left */
 li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 { list-style-type: none }
 /* Alternate shading for lines */
 li.L1, li.L3, li.L5, li.L7, li.L9 { background: #eee }
+</style>
+
+<style id="primavera-theme" media="none">/* Special made, just for Neo-vision */
+pre { line-height: 1.5em; }
+.str { color: #1A6; background: hsla( 120, 100%, 50%, 0.05); border-radius: 0.3em; } /* string */
+.kwd { color: #D50; } /* keyword */
+.com { color: #D9B; font-style: italic; }  /* comment */
+.typ { color: #D0A;  } /* type: JS constructors */
+.lit { color: #48E; } /* literal: numbers, CSS values */
+.pun { color: #963; } /* punctuation */
+.pln { color: #755; } /* plain text */
 </style>
 
 <style id="slate-theme" media="none">body { background: #1B3748; color: #F8F8F8; }
@@ -227,9 +250,11 @@ pre { line-height: 1.45em; }
           <option value="desert">Desert</option>
           <option value="espresso-libre">Espresso Libre</option>
           <option value="idle">IDLE</option>
+          <option value="i-know-kung-fu">I know kung fu</option>
           <option value="katydid">Katydid</option>
           <option value="mac-classic">Mac Classic</option>
           <option value="prettify">Prettify (default)</option>
+          <option value="primavera">Primavera</option>
           <option value="slate">Slate</option>
           <option value="sunburst">Sunburst</option>
         </select>
