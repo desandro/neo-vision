@@ -243,15 +243,15 @@ pre { line-height: 1.45em; }
           <option value="i-know-kung-fu">I know kung fu</option>
           <option value="katydid">Katydid</option>
           <option value="mac-classic">Mac Classic</option>
-          <option value="prettify">Prettify (default)</option>
-          <option value="primavera">Primavera</option>
+          <option value="prettify">Prettify</option>
+          <option value="primavera">Primavera (default)</option>
           <option value="slate">Slate</option>
           <option value="sunburst">Sunburst</option>
         </select>
       </p>
       <p><textarea id="style-text"></textarea></p>
       <p class="buttons">
-        <button id="reset">Reset to saved</button>
+        <button id="reset">Reset</button>
         <input type="submit" id="save-button" value="Save Theme" />
       </p>
     </form>
@@ -283,46 +283,43 @@ u { color: "umber"; }</pre>
     // get background page
     var bgPage = chrome.extension.getBackgroundPage();
 
+    console.log( bgPage )
+
     window.onload = function() {
 
       var styleNode = document.createElement('style'),
           styleText = document.getElementById('style-text'),
-          savedCssElem = document.getElementById('saved-css'),
-          defaultThemeStyle = document.getElementById('prettify-theme').textContent;
+          savedCssElem = document.getElementById('saved-css');
       
       document.head.appendChild( styleNode );
       
-      // dynamically update styles
-      function syncStyles() {
-        styleNode.textContent = styleText.value;
-      }
-      
-      function displayStyleCode() {
-        savedCssElem.innerHTML = '/**** saved Neo-vision style ****/ <br />' + styleText.value;
-      }
-
-      // set text to last style
-      if ( localStorage['neoVisionStyle'] ) {
-        styleText.value = localStorage['neoVisionStyle'];
-        displayStyleCode();
-      } else {
-        styleText.value = defaultThemeStyle
-      }
-      styleText.value = localStorage['neoVisionStyle'] || defaultThemeStyle;
-      syncStyles();
-
       prettyPrint();
-
+      
       // remove prettyprint class
       var prettyPrinted = document.querySelectorAll('.example.prettyprint');
       for (var i=0, len = prettyPrinted.length; i < len; i++) {
         prettyPrinted[i].classList.remove('prettyprint');
       }
       
+      // dynamically update styles
+      function syncStyles() {
+        styleNode.textContent = styleText.value;
+      }
+      
+      // show saved code in example
+      function displayStyleCode() {
+        savedCssElem.innerHTML = '/**** saved Neo-vision style ****/ <br />' + styleText.value;
+        prettyPrint();
+      }
+
+      // set text to last style
+      styleText.value = localStorage['neoVisionStyle'] || bgPage.defaultTheme;
+      syncStyles();
+      displayStyleCode();
+      
       // save theme when form is submitted
       document.getElementsByTagName('form')[0].addEventListener( 'submit', function(event) {
         displayStyleCode();
-        prettyPrint();
         localStorage['neoVisionStyle'] = styleText.value;
         event.preventDefault();
       }, false);
@@ -341,8 +338,9 @@ u { color: "umber"; }</pre>
       // dynamically update styles
       styleText.addEventListener('keyup', syncStyles, false);
       
+      // reset style to saved
       document.getElementById('reset').addEventListener( 'click', function(event) {
-        styleText.value = localStorage['neoVisionStyle'] || '';
+        styleText.value = localStorage['neoVisionStyle'] || bgPage.defaultTheme;
         syncStyles();
       }, false);
 
