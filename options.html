@@ -40,7 +40,7 @@
     
     #style-text {
       display: block;
-      /*-webkit-appearance: textarea;*/
+      -webkit-appearance: textarea;
       border: 1px solid #CCC;
       -webkit-user-select: text;
       resize: both;
@@ -131,9 +131,8 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 .pln { color: #000; } /* plaintext */
 </style>
 
-<style id="i-know-kung-fu-theme" media="none">/* Special made, just for Neo-vision */
+<style id="i-know-kung-fu-theme" media="none">/* made for Neo-vision */
 body { background: #000; color: #2F2; }
-pre { line-height: 1.5em; }
 .str { color: #6A6; background: hsla( 120, 50%, 70%, 0.1); } /* string */
 .kwd { color: #EFE; text-shadow: 0 0 10px hsla(120,100%,50%,0.8), 0 0 5px hsla(120,50%,50%,0.5);  } /* keyword */
 .com { color: #343; font-style: italic; }  /* comment */
@@ -143,9 +142,8 @@ pre { line-height: 1.5em; }
 .pln { color: #AFA; } /* plain text */
 </style>
 
-<style id="katydid-theme" media="none">/* Special made, just for Neo-vision */
+<style id="katydid-theme" media="none">/* made for Neo-vision */
 body { background: #20282C; color: #F8F8F8; }
-pre { line-height: 1.5em; }
 .str { color: #2C5; background: hsla( 120, 100%, 70%, 0.05); text-shadow: 0 1px black; border-radius: 0.3em; } /* string */
 .kwd { color: #F84; } /* keyword */
 .com { color: #469; font-style: italic; background: hsla( 0, 0%, 0%, 0.07); }  /* comment */
@@ -182,12 +180,11 @@ li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 { list-style-type: none }
 li.L1, li.L3, li.L5, li.L7, li.L9 { background: #eee }
 </style>
 
-<style id="primavera-theme" media="none">/* Special made, just for Neo-vision */
-pre { line-height: 1.5em; }
+<style id="primavera-theme" media="none">/* made for Neo-vision */
 .str { color: #1A6; background: hsla( 120, 100%, 50%, 0.05); border-radius: 0.3em; } /* string */
 .kwd { color: #D50; } /* keyword */
 .com { color: #D9B; font-style: italic; }  /* comment */
-.typ { color: #D0A;  } /* type: JS constructors */
+.typ { color: #F0D; font-weight: bold; } /* type: JS constructors */
 .lit { color: #48E; } /* literal: numbers, CSS values */
 .pun { color: #963; } /* punctuation */
 .pln { color: #755; } /* plain text */
@@ -285,8 +282,7 @@ u { color: "umber"; }</pre>
     <pre id="saved-css" class="prettyprint lang-css"></pre>
   </div>
   
-  <script src="prettify.js"></script>
-  <script src="lang-css.js"></script>
+  <script src="prettify.min.js"></script>
   <script>
     // options page only
     
