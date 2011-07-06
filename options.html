@@ -26,12 +26,11 @@
       padding: 10px;
     }
     
-    textarea {
-    }
-    
     input[type="submit"] {
       -webkit-appearance: button;
       font-size: 16px;
+      display: inline-block;
+      float: right;
     }
     
     h1 {
@@ -39,12 +38,7 @@
     }
     
     #style-text {
-      display: block;
-      -webkit-appearance: textarea;
       border: 1px solid #CCC;
-      -webkit-user-select: text;
-      resize: both;
-      -webkit-resize: both;
       padding: 5px;
       white-space: pre-wrap;
       word-wrap: break-word;
@@ -52,7 +46,6 @@
       height: 360px;
       font-size: 12px;
       font-family: monospace;
-      overflow: auto;
       line-height: 1.45em;
       -webkit-box-shadow: inset 0 2px 5px hsla( 0, 0%, 0%, 0.1 );
     }
@@ -147,7 +140,8 @@ body { background: #20282C; color: #F8F8F8; }
 .str { color: #2C5; background: hsla( 120, 100%, 70%, 0.05); text-shadow: 0 1px black; border-radius: 0.3em; } /* string */
 .kwd { color: #F84; } /* keyword */
 .com { color: #469; font-style: italic; background: hsla( 0, 0%, 0%, 0.07); }  /* comment */
-.typ { color: yellow; outline: 1px solid hsla( 60, 100%, 50%, 0.15); } /* type: JS constructors */.lit { color: #FC6; } /* literal: numbers, CSS values */
+.typ { color: yellow; outline: 1px solid hsla( 60, 100%, 50%, 0.15); } /* type: JS constructors */
+.lit { color: #FC6; } /* literal: numbers, CSS values */
 .pun { color: #FCD; } /* punctuation */
 .pln { color: #F8F8F8; } /* plain text */</style>
 
@@ -232,7 +226,6 @@ pre { line-height: 1.45em; }
 </head>
 <body>
 
-
   <div id="options">
     <h1>Neo-vision options</h1>
 
@@ -256,13 +249,13 @@ pre { line-height: 1.45em; }
           <option value="sunburst">Sunburst</option>
         </select>
       </p>
-      <p><style id="style-text" contenteditable></style></p>
-      <p class="has-buttons">
+      <p><textarea id="style-text"></textarea></p>
+      <p class="buttons">
+        <button id="reset">Reset to saved</button>
         <input type="submit" id="save-button" value="Save Theme" />
       </p>
     </form>
   </div>
-
 
 
   <div id="examples">
@@ -281,27 +274,42 @@ u { color: "umber"; }</pre>
     <hr />
     <pre id="saved-css" class="prettyprint lang-css"></pre>
   </div>
-  
+
+
   <script src="prettify.min.js"></script>
   <script>
     // options page only
     
+    // get background page
     var bgPage = chrome.extension.getBackgroundPage();
 
     window.onload = function() {
 
-      var styleText = document.getElementById('style-text'),
+      var styleNode = document.createElement('style'),
+          styleText = document.getElementById('style-text'),
           savedCssElem = document.getElementById('saved-css'),
           defaultThemeStyle = document.getElementById('prettify-theme').textContent;
+      
+      document.head.appendChild( styleNode );
+      
+      // dynamically update styles
+      function syncStyles() {
+        styleNode.textContent = styleText.value;
+      }
+      
+      function displayStyleCode() {
+        savedCssElem.innerHTML = '/**** saved Neo-vision style ****/ <br />' + styleText.value;
+      }
 
       // set text to last style
       if ( localStorage['neoVisionStyle'] ) {
-        styleText.textContent = localStorage['neoVisionStyle'];
-        saveStyle( localStorage['neoVisionStyle'] );
+        styleText.value = localStorage['neoVisionStyle'];
+        displayStyleCode();
       } else {
-        styleText.textContent = defaultThemeStyle
+        styleText.value = defaultThemeStyle
       }
-      styleText.textContent = localStorage['neoVisionStyle'] || defaultThemeStyle;
+      styleText.value = localStorage['neoVisionStyle'] || defaultThemeStyle;
+      syncStyles();
 
       prettyPrint();
 
@@ -310,17 +318,12 @@ u { color: "umber"; }</pre>
       for (var i=0, len = prettyPrinted.length; i < len; i++) {
         prettyPrinted[i].classList.remove('prettyprint');
       }
-
-      function saveStyle( style ) {
-        savedCssElem.innerHTML = '/**** saved Neo-vision style ****/ <br />' + style;
-        prettyPrint();
-        // bgPage.storeStyle( style );
-        localStorage['neoVisionStyle'] = style;
-      }
-
+      
       // save theme when form is submitted
       document.getElementsByTagName('form')[0].addEventListener( 'submit', function(event) {
-        saveStyle( styleText.textContent )
+        displayStyleCode();
+        prettyPrint();
+        localStorage['neoVisionStyle'] = styleText.value;
         event.preventDefault();
       }, false);
 
@@ -331,7 +334,16 @@ u { color: "umber"; }</pre>
         }
         // get content of matching <style id="value-theme" />
         var style = document.getElementById( event.target.value + '-theme').textContent;
-        styleText.textContent = style;
+        styleText.value = style;
+        syncStyles();
+      }, false);
+      
+      // dynamically update styles
+      styleText.addEventListener('keyup', syncStyles, false);
+      
+      document.getElementById('reset').addEventListener( 'click', function(event) {
+        styleText.value = localStorage['neoVisionStyle'] || '';
+        syncStyles();
       }, false);
 
     };
