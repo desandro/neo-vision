@@ -3,9 +3,9 @@ Neo-vision Chrome extension - syntax highlighted view-source
 
 Syntax-highlights source code files, like Neo scoping out the Matrix (played by the infallible **Keanu Reeves**).  This one is better than all the others because...
 
-+ Plenty of good lookin' themes
-+ Themes can be easily set in the options with basic CSS.
-+ Relies on [Google Code Prettify](http://code.google.com/p/google-code-prettify/) for quick and simple syntax highlighting
++ Plenty of good lookin' themes.
++ Themes can be easily configured in the options with basic CSS.
++ Relies on [Google Code Prettify](http://code.google.com/p/google-code-prettify/) for quick and simple syntax highlighting.
 + No beautifier/uncompressor included. Whitespace is preserved.
 
 Currently only supports `.js` and `.css` files, but more languages can be added as needed.
@@ -13,3 +13,55 @@ Currently only supports `.js` and `.css` files, but more languages can be added 
 ## Development
 
 To develop on this extension, you can [load it as an unpacked extension](http://code.google.com/chrome/extensions/getstarted.html#load-ext).
+
+## Themes
+
+Blackboard
+
+![Blackboard theme](http://i.imgur.com/ixBaI.png)
+
+Cobalt
+
+![Cobalt theme](http://i.imgur.com/ycNjR.png)
+
+Desert
+
+![Desert theme](http://i.imgur.com/qNhvJ.png)
+
+Espresso Libre
+
+![Espresso Libre theme](http://i.imgur.com/WFkpc.png)
+
+IDLE
+
+![IDLE theme](http://i.imgur.com/0UE16.png)
+
+I know kung fu
+
+![I know kung fu theme](http://i.imgur.com/ankKI.png)
+
+Katydid
+
+![Katydid theme](http://i.imgur.com/stKga.png)
+
+Mac Classic
+
+![Mac Classic theme](http://i.imgur.com/50Ko9.png)
+
+Prettify
+
+![Prettify theme](http://i.imgur.com/3Goky.png)
+
+Primavera
+
+![Primavera theme](http://i.imgur.com/HD1GU.png)
+
+Slate
+
+![Slate theme](http://i.imgur.com/L5Kzb.png)
+
+Sunburst
+
+![Sunburst theme](http://i.imgur.com/qH2Lr.png)
+
+
