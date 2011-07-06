@@ -1,13 +1,17 @@
 {
   "name": "Neo Vision",
   "version": "0.1",
-  "description": "Syntax-highlights source code files, like Neo scoping out the Matrix (played by the infallible KEANU REEVES).",
+  "description": "Syntax-highlights source code files",
   "content_scripts": [ {
      "js": [ "prettify.min.js", "neo-vision.js" ],
-     "matches": [ "http://*/*.css*", "http://*/*.js*", "https://*/*.css*", "https://*/*.js*" ],
+     "matches": [ "http://*/*.css*", "http://*/*.js*", "https://*/*.css*", "https://*/*.js*", "file:///*/*.css*", "file:///*/*.js*" ],
      "run_at": "document_end"
   } ],
-  "permissions": [ "contextMenus", "tabs", "http://*/", "https://*/" ],
+  "permissions": [ "http://*/", "https://*/", "file:///*/" ],
   "options_page": "options.html",
-  "background_page": "background.html"
+  "background_page": "background.html",
+  "icons": {
+    "48": "neo-vision-48.png",
+    "128": "neo-vision-128.png"
+  }
 }
