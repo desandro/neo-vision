@@ -30,7 +30,8 @@
     }
     
     input[type="submit"] {
-      font-size: 40px;
+      -webkit-appearance: button;
+      font-size: 16px;
     }
     
     h1 {
@@ -39,20 +40,21 @@
     
     #style-text {
       display: block;
-      -webkit-appearance: textarea;
+      /*-webkit-appearance: textarea;*/
       border: 1px solid #CCC;
       -webkit-user-select: text;
       resize: both;
       -webkit-resize: both;
-      padding: 2px;
+      padding: 5px;
       white-space: pre-wrap;
       word-wrap: break-word;
-      width: 540px;
-      height: 400px;
+      width: 500px;
+      height: 360px;
       font-size: 12px;
       font-family: monospace;
       overflow: auto;
       line-height: 1.45em;
+      -webkit-box-shadow: inset 0 2px 5px hsla( 0, 0%, 0%, 0.1 );
     }
     
     hr {
@@ -61,8 +63,84 @@
       border-bottom: 1px solid hsla( 0, 0%, 100%, 0.2 );
     }
   </style>
-  
-<style id="default-theme" media="none">.str { color: #080 }  /* string content */
+
+<!-- Themes -->
+
+<style id="blackboard-theme" media="none">body { background: #0F132B; color: white; }
+.pln { color: #F9F9F9; } /* plaintext */
+.pun { color: #F9F9F9; } /* punctuation */
+.str { color: #6ED852; } /* string */
+.kwd { color: #F7E648; } /* keyword */
+.com { color: #BBBBBB; } /* comment */
+.typ { color: #FC781C; } /* type */
+.lit { color: #DAFC57; } /* literal */
+</style>
+
+<style id="cobalt-theme" media="none">body { background-color: #092C50; }
+.pun { color: #E7F2FE; } /* punctuation */
+.pln { color: #fff; } /* plaintext */
+.str { color: #3EE11F; } /* string */
+.kwd { color: #FBAE22; } /* keyword */
+.com { color: #3397FC; font-style: italic; } /* comment */
+.typ { color: #FAE529; } /* type */
+.lit { color: #F4F496; } /* literal */
+.tag { color: #3EE11F; } /* html/xml tag */
+.atn { color: #bdb76b; } /* html/xml attribute name */
+.atv { color: #3EE11F; } /* html/xml attribute value */
+.dec { color: #3387CC; } /* decimal */
+</style>
+
+<style id="desert-theme" media="none">/* desert scheme ported from vim to google prettify */
+body { background-color: #333 }
+pre .nocode { background-color: none; color: #000 }
+pre .str { color: #ffa0a0 } /* string  - pink */
+pre .kwd { color: #f0e68c; font-weight: bold }
+pre .com { color: #87ceeb } /* comment - skyblue */
+pre .typ { color: #98fb98 } /* type    - lightgreen */
+pre .lit { color: #cd5c5c } /* literal - darkred */
+pre .pun { color: #fff }    /* punctuation */
+pre .pln { color: #fff }    /* plaintext */
+pre .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
+pre .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
+pre .atv { color: #ffa0a0 } /* attribute value - pink */
+pre .dec { color: #98fb98 } /* decimal         - lightgreen */
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,li.L3,li.L5,li.L7,li.L9 { }
+</style>
+
+<style id="espresso-libre-theme" media="none">body { background: #2A211C; color: #BDAE9D; }
+.pln { color: #BDAE9D; } /* plaintext */
+.pun { color: #BDAE9D; } /* punctuation */
+.str { color: #049B0A; } /* string */
+.kwd { color: #43A8ED; font-weight: bold; } /* keyword */
+.com { color: #06f; font-style: italic; } /* comment */
+.typ { color: #FF9358;  font-weight: bold; } /* type */
+.lit { color: #C5656B; } /* literal */
+</style>
+
+<style id="idle-theme" media="none">.str { color: #007E10; } /* string */
+.kwd { color: #FF5600; } /* keyword */
+.com { color: #919191; } /* comment */
+.typ { color: #A535AE; } /* type */
+.lit { color: #21439C; } /* literal */
+.pun { color: #000; } /* punctuation */
+.pln { color: #000; } /* plaintext */
+</style>
+
+<style id="mac-classic-theme" media="none">.str { color: #007E10; } /* string */
+.kwd { color: #3A00FC; } /* keyword */
+.com { color: #3675FC; font-style: italic; } /* comment */
+.typ { color: #2500AF; } /* type */
+.lit { color: #2F00D3; } /* literal */
+.pun { color: #000; } /* punctuation */
+.pln { color: #000; } /* plaintext */
+</style>
+
+<style id="prettify-theme" media="none">.str { color: #080 }  /* string content */
 .kwd { color: #008 }  /* a keyword */
 .com { color: #800 }  /* a comment */
 .typ { color: #606 }  /* a type name */
@@ -98,7 +176,8 @@ body { background-color: #000; }
 .dec { color: #3387CC; } /* decimal - blue */
 </style>
 
-<style id="sunburst-dd-theme" media="none">body { background: #000; color: white; }
+<style id="sunburst-dd-theme" media="none">
+body { background: #000; color: white; }
 pre { line-height: 1.45em; }
 .str { color: #65B042; } /* string */
 .kwd { color: #E28964; } /* keyword */
@@ -107,35 +186,9 @@ pre { line-height: 1.45em; }
 .lit { color: #3387CC; }
 .pun { color: #EDC; }
 .pln { color: #EEE; }
-.tag { color: #89bdff; }
-.atn { color: #bdb76b; }
-.atv { color: #65B042; }
-.dec { color: #3387CC; }
-ol.linenums { margin-top: 0; margin-bottom: 0; }
 </style>
-  
-<style id="desert-theme" media="none">/* desert scheme ported from vim to google prettify */
-body { background-color: #333 }
-pre .nocode { background-color: none; color: #000 }
-pre .str { color: #ffa0a0 } /* string  - pink */
-pre .kwd { color: #f0e68c; font-weight: bold }
-pre .com { color: #87ceeb } /* comment - skyblue */
-pre .typ { color: #98fb98 } /* type    - lightgreen */
-pre .lit { color: #cd5c5c } /* literal - darkred */
-pre .pun { color: #fff }    /* punctuation */
-pre .pln { color: #fff }    /* plaintext */
-pre .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
-pre .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
-pre .atv { color: #ffa0a0 } /* attribute value - pink */
-pre .dec { color: #98fb98 } /* decimal         - lightgreen */
 
-/* Specify class=linenums on a pre to get line numbering */
-ol.linenums { margin-top: 0; margin-bottom: 0; color: #AEAEAE } /* IE indents via margin-left */
-li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
-/* Alternate shading for lines */
-li.L1,li.L3,li.L5,li.L7,li.L9 { }
-</style>
-  
+
 </head>
 <body>
 
@@ -148,10 +201,14 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
         <label for="themes">Use theme: </label>
         <select id="themes">
           <option></option>
-          <option value="default">default</option>
-          <option value="sunburst">sunburst</option>
-          <option value="sunburst-dd">sunburst-dd</option>
-          <option value="desert">desert</option>
+          <option value="blackboard">Blackboard</option>
+          <option value="cobalt">Cobalt</option>
+          <option value="desert">Desert</option>
+          <option value="espresso-libre">Espresso Libre</option>
+          <option value="idle">IDLE</option>
+          <option value="mac-classic">Mac Classic</option>
+          <option value="prettify">Prettify (default)</option>
+          <option value="sunburst">Sunburst</option>
         </select>
       </p>
       <h2>Theme CSS</h2>
@@ -192,7 +249,7 @@ u { color: "umber"; }</pre>
 
       var styleText = document.getElementById('style-text'),
           savedCssElem = document.getElementById('saved-css'),
-          defaultThemeStyle = document.getElementById('default-theme').textContent;
+          defaultThemeStyle = document.getElementById('prettify-theme').textContent;
 
       // set text to last style
       if ( localStorage['neoVisionStyle'] ) {

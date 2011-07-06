@@ -1,4 +1,4 @@
-<style id="default-theme" media="none">.str { color: #080 }  /* string content */
+<style id="prettify-theme" media="none">.str { color: #080 }  /* string content */
 .kwd { color: #008 }  /* a keyword */
 .com { color: #800 }  /* a comment */
 .typ { color: #606 }  /* a type name */
@@ -22,7 +22,7 @@ li.L1, li.L3, li.L5, li.L7, li.L9 { background: #eee }
   chrome.extension.onRequest.addListener( function(request, sender, sendResponse) {
     switch ( request.method ) {
       case 'getStyle' : 
-        var style  = localStorage['neoVisionStyle'] || document.getElementById('default-theme').textContent;
+        var style  = localStorage['neoVisionStyle'] || document.getElementById('prettify-theme').textContent;
         sendResponse( style );
         break;
       default :
