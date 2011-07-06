@@ -131,6 +131,16 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 .pln { color: #000; } /* plaintext */
 </style>
 
+<style id="katydid-theme" media="none">/* Special made, just for Neo-vision */
+body { background: #20282C; color: #F8F8F8; }
+pre { line-height: 1.5em; }
+.str { color: #2C5; background: hsla( 120, 100%, 70%, 0.05); text-shadow: 0 1px black; border-radius: 0.3em; } /* string */
+.kwd { color: #F84; } /* keyword */
+.com { color: #469; font-style: italic; background: hsla( 0, 0%, 0%, 0.07); }  /* comment */
+.typ { color: yellow; outline: 1px solid hsla( 60, 100%, 50%, 0.15); } /* type: JS constructors */.lit { color: #FC6; } /* literal: numbers, CSS values */
+.pun { color: #FCD; } /* punctuation */
+.pln { color: #F8F8F8; } /* plain text */</style>
+
 <style id="mac-classic-theme" media="none">.str { color: #007E10; } /* string */
 .kwd { color: #3A00FC; } /* keyword */
 .com { color: #3675FC; font-style: italic; } /* comment */
@@ -158,6 +168,16 @@ ol.linenums { margin-top: 0; margin-bottom: 0 } /* IE indents via margin-left */
 li.L0, li.L1, li.L2, li.L3, li.L5, li.L6, li.L7, li.L8 { list-style-type: none }
 /* Alternate shading for lines */
 li.L1, li.L3, li.L5, li.L7, li.L9 { background: #eee }
+</style>
+
+<style id="slate-theme" media="none">body { background: #1B3748; color: #F8F8F8; }
+.str { color: #55E439; } /* string */
+.kwd { color: #FA0; } /* keyword */
+.com { color: #1E9AE0; font-style: italic; }  /* comment */
+.typ { color: #EFE900; } /* type: JS constructors */
+.lit { color: #FF3A83; } /* literal: numbers, CSS values */
+.pun { color: #F8F8F8; } /* punctuation */
+.pln { color: #F8F8F8; } /* plain text */
 </style>
 
 <style id="sunburst-theme" media="none">/* Pretty printing styles. Used with prettify.js. */
@@ -197,6 +217,7 @@ pre { line-height: 1.45em; }
     <h1>Neo-vision options</h1>
 
     <form>
+      <h2>Theme CSS</h2>
       <p>
         <label for="themes">Use theme: </label>
         <select id="themes">
@@ -206,12 +227,13 @@ pre { line-height: 1.45em; }
           <option value="desert">Desert</option>
           <option value="espresso-libre">Espresso Libre</option>
           <option value="idle">IDLE</option>
+          <option value="katydid">Katydid</option>
           <option value="mac-classic">Mac Classic</option>
           <option value="prettify">Prettify (default)</option>
+          <option value="slate">Slate</option>
           <option value="sunburst">Sunburst</option>
         </select>
       </p>
-      <h2>Theme CSS</h2>
       <p><style id="style-text" contenteditable></style></p>
       <p class="has-buttons">
         <input type="submit" id="save-button" value="Save Theme" />
