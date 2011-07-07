@@ -1,13 +1,12 @@
 {
   "name": "Neo Vision",
-  "version": "0.1",
-  "description": "Syntax-highlights source code files",
+  "version": "0.2",
+  "description": "Syntax-highlights source code files with customizable themes",
   "content_scripts": [ {
      "js": [ "prettify.min.js", "neo-vision.js" ],
      "matches": [ "http://*/*.css*", "http://*/*.js*", "https://*/*.css*", "https://*/*.js*", "file:///*/*.css*", "file:///*/*.js*" ],
      "run_at": "document_end"
   } ],
-  "permissions": [ "http://*/", "https://*/", "file:///*/" ],
   "options_page": "options.html",
   "background_page": "background.html",
   "icons": {
