@@ -3,6 +3,7 @@
 BUILD_DIR='neo-vision'
 REMOVABLES=("build.sh" "prettify.js" "lang-css.js" "README.mdown")
 
+rm neo-vision.zip
 rm -rf $BUILD_DIR/
 mkdir $BUILD_DIR
 cp * $BUILD_DIR
