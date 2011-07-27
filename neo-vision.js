@@ -29,7 +29,6 @@
     pre.className = "prettyprint lang-" + ext;
     prettyPrint();
     
-    console.log('Neo-vision active');
   });
 
 })();
