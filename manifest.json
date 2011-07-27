@@ -1,6 +1,6 @@
 {
   "name": "Neo Vision",
-  "version": "0.2",
+  "version": "0.3",
   "description": "Syntax-highlights source code files with customizable themes",
   "content_scripts": [ {
      "js": [ "prettify.min.js", "neo-vision.js" ],
