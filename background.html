@@ -15,6 +15,8 @@
     switch ( request.method ) {
       case 'getStyle' : 
         var style  = localStorage['neoVisionStyle'] || defaultTheme;
+        // show icon in address
+        chrome.pageAction.show(sender.tab.id)
         sendResponse( style );
         break;
       default :

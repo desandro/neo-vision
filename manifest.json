@@ -10,7 +10,12 @@
   "options_page": "options.html",
   "background_page": "background.html",
   "icons": {
+    "16": "neo-vision-16.png",
     "48": "neo-vision-48.png",
     "128": "neo-vision-128.png"
+  },
+  "page_action": {
+    "default_icon": "neo-vision-16.png",
+    "default_title": "Neo Vision active"
   }
 }
