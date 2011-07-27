@@ -66,8 +66,8 @@
 
 <!-- Themes -->
 
-<style id="blackboard-theme" media="none">body { background: #0F132B; color: white; }
-.pln { color: #F9F9F9; } /* plaintext */
+<style id="blackboard-theme" media="none">body { background: #0F132B; }
+body, .pln { color: #F9F9F9; } /* plaintext */
 .pun { color: #F9F9F9; } /* punctuation */
 .str { color: #6ED852; } /* string */
 .kwd { color: #F7E648; } /* keyword */
@@ -77,8 +77,8 @@
 </style>
 
 <style id="cobalt-theme" media="none">body { background-color: #092C50; }
+body, .pln { color: #fff; } /* plaintext */
 .pun { color: #E7F2FE; } /* punctuation */
-.pln { color: #fff; } /* plaintext */
 .str { color: #3EE11F; } /* string */
 .kwd { color: #FBAE22; } /* keyword */
 .com { color: #3397FC; font-style: italic; } /* comment */
@@ -99,7 +99,7 @@ pre .com { color: #87ceeb } /* comment - skyblue */
 pre .typ { color: #98fb98 } /* type    - lightgreen */
 pre .lit { color: #cd5c5c } /* literal - darkred */
 pre .pun { color: #fff }    /* punctuation */
-pre .pln { color: #fff }    /* plaintext */
+body, pre .pln { color: #fff }    /* plaintext */
 pre .tag { color: #f0e68c; font-weight: bold } /* html/xml tag    - lightyellow */
 pre .atn { color: #bdb76b; font-weight: bold } /* attribute name  - khaki */
 pre .atv { color: #ffa0a0 } /* attribute value - pink */
@@ -112,8 +112,8 @@ li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 { list-style-type: none }
 li.L1,li.L3,li.L5,li.L7,li.L9 { }
 </style>
 
-<style id="espresso-libre-theme" media="none">body { background: #2A211C; color: #BDAE9D; }
-.pln { color: #BDAE9D; } /* plaintext */
+<style id="espresso-libre-theme" media="none">body { background: #2A211C; }
+body, .pln { color: #BDAE9D; } /* plaintext */
 .pun { color: #BDAE9D; } /* punctuation */
 .str { color: #049B0A; } /* string */
 .kwd { color: #43A8ED; font-weight: bold; } /* keyword */
@@ -128,29 +128,30 @@ li.L1,li.L3,li.L5,li.L7,li.L9 { }
 .typ { color: #A535AE; } /* type */
 .lit { color: #21439C; } /* literal */
 .pun { color: #000; } /* punctuation */
-.pln { color: #000; } /* plaintext */
+body, .pln { color: #000; } /* plaintext */
 </style>
 
 <style id="i-know-kung-fu-theme" media="none">/* made for Neo Vision */
-body { background: #000; color: #2F2; }
+body { background: #000; }
 .str { color: #6A6; background: hsla( 120, 50%, 70%, 0.1); } /* string */
 .kwd { color: #EFE; text-shadow: 0 0 10px hsla(120,100%,50%,0.8), 0 0 5px hsla(120,50%,50%,0.5);  } /* keyword */
 .com { color: #343; font-style: italic; }  /* comment */
 .typ { color: #6C9; text-decoration: underline; } /* type: JS constructors */
 .lit { color: #DFD; } /* literal: numbers, CSS values */
 .pun { color: #8D8; } /* punctuation */
-.pln { color: #AFA; } /* plain text */
+body, .pln { color: #AFA; } /* plain text */
 </style>
 
 <style id="katydid-theme" media="none">/* made for Neo Vision */
-body { background: #20282C; color: #F8F8F8; }
+body { background: #20282C; }
 .str { color: #2C5; background: hsla( 120, 100%, 70%, 0.05); text-shadow: 0 1px black; border-radius: 0.3em; } /* string */
 .kwd { color: #F84; } /* keyword */
 .com { color: #469; font-style: italic; background: hsla( 0, 0%, 0%, 0.07); }  /* comment */
 .typ { color: yellow; outline: 1px solid hsla( 60, 100%, 50%, 0.15); } /* type: JS constructors */
 .lit { color: #FC6; } /* literal: numbers, CSS values */
 .pun { color: #FCD; } /* punctuation */
-.pln { color: #F8F8F8; } /* plain text */</style>
+body, .pln { color: #F8F8F8; } /* plain text */
+</style>
 
 <style id="mac-classic-theme" media="none">.str { color: #007E10; } /* string */
 .kwd { color: #3A00FC; } /* keyword */
@@ -158,7 +159,7 @@ body { background: #20282C; color: #F8F8F8; }
 .typ { color: #2500AF; } /* type */
 .lit { color: #2F00D3; } /* literal */
 .pun { color: #000; } /* punctuation */
-.pln { color: #000; } /* plaintext */
+body, .pln { color: #000; } /* plaintext */
 </style>
 
 <style id="prettify-theme" media="none">.str { color: #080 }  /* string content */
@@ -188,17 +189,17 @@ li.L1, li.L3, li.L5, li.L7, li.L9 { background: #eee }
 .typ { color: #F0D; font-weight: bold; } /* type: JS constructors */
 .lit { color: #48E; } /* literal: numbers, CSS values */
 .pun { color: #963; } /* punctuation */
-.pln { color: #755; } /* plain text */
+body, .pln { color: #755; } /* plain text */
 </style>
 
-<style id="slate-theme" media="none">body { background: #1B3748; color: #F8F8F8; }
+<style id="slate-theme" media="none">body { background: #1B3748; }
 .str { color: #55E439; } /* string */
 .kwd { color: #FA0; } /* keyword */
 .com { color: #1E9AE0; font-style: italic; }  /* comment */
 .typ { color: #EFE900; } /* type: JS constructors */
 .lit { color: #FF3A83; } /* literal: numbers, CSS values */
 .pun { color: #F8F8F8; } /* punctuation */
-.pln { color: #F8F8F8; } /* plain text */
+body, .pln { color: #F8F8F8; } /* plain text */
 </style>
 
 <style id="sunburst-theme" media="none">/* Pretty printing styles. Used with prettify.js. */
@@ -210,7 +211,7 @@ body { background-color: #000; }
 .typ { color: #89bdff; } /* type - light blue */
 .lit { color: #3387CC; } /* literal - blue */
 .pun { color: #fff; } /* punctuation - white */
-.pln { color: #fff; } /* plaintext - white */
+body, .pln { color: #fff; } /* plaintext - white */
 .tag { color: #89bdff; } /* html/xml tag    - light blue */
 .atn { color: #bdb76b; } /* html/xml attribute name  - khaki */
 .atv { color: #65B042; } /* html/xml attribute value - green */
@@ -218,7 +219,7 @@ body { background-color: #000; }
 </style>
 
 <style id="sunburst-dd-theme" media="none">
-body { background: #000; color: white; }
+body { background: #000; }
 pre { line-height: 1.45em; }
 .str { color: #65B042; } /* string */
 .kwd { color: #E28964; } /* keyword */
@@ -226,7 +227,7 @@ pre { line-height: 1.45em; }
 .typ { color: #89bdff; } /* type */
 .lit { color: #3387CC; }
 .pun { color: #EDC; }
-.pln { color: #EEE; }
+body, .pln { color: #EEE; }
 </style>
 
 
